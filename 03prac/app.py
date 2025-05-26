@@ -3,6 +3,7 @@ import streamlit as st
 from utils.session import session_control
 from utils.create_dir import create_dir
 from utils.upload import embed_file
+from utils.create_rag_chain import create_rag_chain
 
 session_control()
 create_dir()
@@ -14,3 +15,4 @@ with st.sidebar:
     file = st.file_uploader("파일 업로드", type=["pdf"])
     if file:
         file_path = embed_file(file)
+        rag_chain = create_rag_chain(file_path)
