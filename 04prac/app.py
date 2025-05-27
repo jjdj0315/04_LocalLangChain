@@ -3,6 +3,7 @@ import streamlit as st
 from utils.session import session_control
 from utils.create_dir import create_dir
 from utils.upload import upload_file
+from utils.create_rag_chain import create_rag_chain
 
 session_control()
 create_dir()
