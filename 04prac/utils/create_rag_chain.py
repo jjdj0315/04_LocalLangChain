@@ -16,7 +16,7 @@ from utils.format_docs import format_docs
 @st.cache_resource(show_spinner="파일을 처리중입니다. 잠시만 기다려주세요.")
 def create_rag_chain(file_path):
     # spliter설정
-    text_spliter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlab=50)
+    text_spliter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
 
     # 문서 로드
     loader = PDFPlumberLoader(file_path)
@@ -25,7 +25,7 @@ def create_rag_chain(file_path):
     # 캐싱지원 임베딩 설정
     cache_dir = LocalFileStore(f".cache/embeddings")
 
-    EMBEDDING_MODEL = "bge3-m3"
+    EMBEDDING_MODEL = "bge-m3"
     embeddings = OllamaEmbeddings(model=EMBEDDING_MODEL)
     cached_embeddings = CacheBackedEmbeddings.from_bytes_store(
         embeddings, cache_dir, namespace=EMBEDDING_MODEL
