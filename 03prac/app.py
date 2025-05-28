@@ -1,4 +1,5 @@
 import streamlit as st
+from dotenv import load_dotenv
 
 from utils.session import session_control
 from utils.create_dir import create_dir
@@ -7,6 +8,7 @@ from utils.create_rag_chain import create_rag_chain
 from utils.print_message import print_messages
 from utils.add_message import add_message
 
+load_dotenv()
 session_control()
 create_dir()
 # 페이지 설정
